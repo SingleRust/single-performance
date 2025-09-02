@@ -1,0 +1,69 @@
+[package]
+name = "rs-methods"
+version = "0.1.0"
+edition = "2024"
+
+[[bin]]
+name = "deg-performance"
+path = "src/deg_performance.rs"
+
+[[bin]]
+name = "filtering-performance"
+path = "src/filtering_performance.rs"
+
+[[bin]]
+name = "hvg-performance"
+path = "src/hvg_performance.rs"
+
+[[bin]]
+name = "normalization-performance"
+path = "src/normalization_performance.rs"
+
+[[bin]]
+name = "pca-performance"
+path = "src/pca_performance.rs"
+
+[[bin]]
+name = "knn-performance"
+path = "src/knn_performance.rs"
+
+[dependencies]
+anndata = "0.6.1"
+anndata-hdf5 = "0.5.0"
+polars = { version = "0.45.1", features = [
+    "lazy",
+    "decompress-fast",
+    "ndarray",
+    "dtype-full",
+] }
+ndarray = { version = "0.16.1", features = ["rayon"] }
+nalgebra-sparse = "0.10.0"
+smallvec = "1.11"
+permutation = "0.4"
+flate2 = "1.0.28"
+itertools = "0.13.0"
+indicatif = "0.17.8"
+console = "0.15.8"
+anyhow = "1.0.86"
+rayon = { version = "1.9.0" }
+log = "0.4.22"
+anndata-memory = { version = "1.0.6" }
+num-traits = "0.2.19"
+statrs = "0.18.0"
+ndarray-stats = "0.6.0"
+noisy_float = "0.2.0"
+rand = "0.8.5"
+plotters = "0.3.6"
+smartcore = { version = "0.4.0", features = ["ndarray-bindings"] }
+nshare = { version = "0.10.0", features = ["ndarray", "nalgebra"] }
+nalgebra = { version = "0.33.2", features = ["serde-serialize", "rayon"] }
+single_algebra = { version = "0.8.6" }
+simba = { version = "0.9.0" }
+clap = { version = "4.5.27", features = ["derive"] }
+single-utilities = "0.8.0"
+single-statistics = { version = "0.7.0" }
+single_rust = {version = "0.5.5"}
+kiddo = "5.1.0"
+single-clustering = {version="0.6.0"}
+ndarray-npy = "0.9.1"
+sys-info = "0.9.1"
