@@ -74,6 +74,10 @@ def run_knn_benchmark(input_path, csv_path, iterations):
         dimensions = adata.shape
         
         print(f"Dataset loaded: {dimensions[0]} samples x {dimensions[1]} features")
+        sc.pp.normalize_total(adata, target_sum=1e4)
+            
+        # Log1p transformation
+        sc.pp.log1p(adata)
         
         var_data = pd.read_csv("/local/06-24_single-rust-project/single_test/var_data.csv")
         highly_variable_mask = var_data['highly_variable'].values.astype(bool)

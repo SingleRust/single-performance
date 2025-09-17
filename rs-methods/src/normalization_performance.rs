@@ -2,13 +2,13 @@ use anyhow::Result;
 use clap::Parser;
 use rayon::ThreadPoolBuilder;
 use single_rust::io;
+use single_rust::memory::processing::{log1p_expression, normalize_expression};
 use single_rust::shared::Precision;
 use single_utilities::types::Direction;
 use std::fs::{File, OpenOptions};
 use std::io::Write;
 use std::path::PathBuf;
 use std::time::Instant;
-use single_rust::memory::processing::{log1p_expression, normalize_expression};
 
 #[derive(Parser)]
 #[command(
@@ -71,10 +71,7 @@ fn run_normalization_benchmark(
 
     // Add header if file is new
     if file.metadata()?.len() == 0 {
-        writeln!(
-            file,
-            "test_case,test_step,time_ms,success,rows,cols"
-        )?;
+        writeln!(file, "test_case,test_step,time_ms,success,rows,cols")?;
     }
 
     // First, do a quick load to get dimensions
@@ -92,7 +89,10 @@ fn run_normalization_benchmark(
         }
     };
 
-    println!("Running normalization + log1p benchmarks for {} iterations", iterations);
+    println!(
+        "Running normalization + log1p benchmarks for {} iterations",
+        iterations
+    );
 
     // Run benchmarks with fresh load each iteration
     for i in 1..=iterations {
@@ -105,7 +105,7 @@ fn run_normalization_benchmark(
 
         log_benchmark_result(
             &mut file,
-            &format!("normalization_log1p_iter{}", i),
+            "normalization_log1p",
             "load",
             load_time,
             load_success,
@@ -119,15 +119,15 @@ fn run_normalization_benchmark(
 
             let norm_result = thread_pool.install(|| {
                 normalize_expression(
-                &x,
-                normalization_target,
-                &Direction::ROW,
-                Some(Precision::Single)
-            )
+                    &x,
+                    normalization_target,
+                    &Direction::ROW,
+                    Some(Precision::Single),
+                )
             });
 
             let log1p_result = if norm_result.is_ok() {
-                thread_pool.install(|| {log1p_expression(&x, Some(Precision::Single))})
+                thread_pool.install(|| log1p_expression(&x, Some(Precision::Single)))
             } else {
                 Err(anyhow::anyhow!("Normalization failed"))
             };
@@ -137,7 +137,7 @@ fn run_normalization_benchmark(
 
             log_benchmark_result(
                 &mut file,
-                &format!("normalization_log1p_iter{}", i),
+                "normalization_log1p",
                 "process",
                 combined_time,
                 combined_success,
@@ -166,7 +166,7 @@ fn main() -> Result<()> {
         &args.h5ad_path,
         &args.csv_path,
         args.iterations,
-        args.normalization_target
+        args.normalization_target,
     )?;
 
     println!("Benchmark completed");

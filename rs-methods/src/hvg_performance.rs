@@ -101,7 +101,7 @@ fn run_hvg_benchmark(h5ad_path: &PathBuf, csv_path: &PathBuf, iterations: usize)
             println!("  Iteration {}/{}", i, iterations);
 
             let hvg_start = Instant::now();
-            let hvg_result = thread_pool.install(|| {compute_highly_variable_genes(&adata, None)});
+            let hvg_result = thread_pool.install(|| compute_highly_variable_genes(&adata, None));
             let hvg_time = hvg_start.elapsed().as_millis();
             let hvg_success = hvg_result.is_ok();
 

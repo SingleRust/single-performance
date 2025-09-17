@@ -28,16 +28,17 @@ declare -A datasets=(
     ["/local/06-24_single-rust-project/performance_eval/datasets/real_world/tahoe/tahoe_50K_cells.h5ad"]=12
     ["/local/06-24_single-rust-project/performance_eval/datasets/real_world/tahoe/tahoe_100K_cells.h5ad"]=12
     ["/local/06-24_single-rust-project/performance_eval/datasets/real_world/tahoe/tahoe_250K_cells.h5ad"]=12
-    ["/local/06-24_single-rust-project/performance_eval/datasets/real_world/tahoe/tahoe_500K_cells.h5ad"]=8
-    ["/local/06-24_single-rust-project/performance_eval/datasets/real_world/tahoe/tahoe_750K_cells.h5ad"]=8
-    ["/local/06-24_single-rust-project/performance_eval/datasets/real_world/tahoe/tahoe_1M_cells.h5ad"]=3
-    ["/local/06-24_single-rust-project/performance_eval/datasets/real_world/tahoe/tahoe_2M_cells.h5ad"]=3
-    ["/local/06-24_single-rust-project/performance_eval/datasets/real_world/tahoe/tahoe_5M_cells.h5ad"]=3
-    ["/local/06-24_single-rust-project/performance_eval/datasets/real_world/tahoe/tahoe_10M_cells.h5ad"]=2
-    ["/local/06-24_single-rust-project/performance_eval/datasets/real_world/tahoe/tahoe_12M_cells.h5ad"]=2
-    ["/local/06-24_single-rust-project/performance_eval/datasets/real_world/tahoe/tahoe_15M_cells.h5ad"]=1
-    ["/local/06-24_single-rust-project/performance_eval/datasets/real_world/tahoe/tahoe_streaming_17M_cells.h5ad"]=1
-    ["/local/06-24_single-rust-project/performance_eval/datasets/real_world/tahoe/tahoe_streaming_20M_cells.h5ad"]=1
+    ["/local/06-24_single-rust-project/performance_eval/datasets/real_world/tahoe/tahoe_500K_cells.h5ad"]=12
+    ["/local/06-24_single-rust-project/performance_eval/datasets/real_world/tahoe/tahoe_750K_cells.h5ad"]=12
+    ["/local/06-24_single-rust-project/performance_eval/datasets/real_world/tahoe/tahoe_1M_cells.h5ad"]=10
+    ["/local/06-24_single-rust-project/performance_eval/datasets/real_world/tahoe/tahoe_2M_cells.h5ad"]=10
+    ["/local/06-24_single-rust-project/performance_eval/datasets/real_world/tahoe/tahoe_5M_cells.h5ad"]=10
+    ["/local/06-24_single-rust-project/performance_eval/datasets/real_world/tahoe/tahoe_7M_cells.h5ad"]=10
+    ["/local/06-24_single-rust-project/performance_eval/datasets/real_world/tahoe/tahoe_10M_cells.h5ad"]=5
+    ["/local/06-24_single-rust-project/performance_eval/datasets/real_world/tahoe/tahoe_12M_cells.h5ad"]=5
+    ["/local/06-24_single-rust-project/performance_eval/datasets/real_world/tahoe/tahoe_15M_cells.h5ad"]=3
+    ["/local/06-24_single-rust-project/performance_eval/datasets/real_world/tahoe/tahoe_streaming_17M_cells.h5ad"]=3
+    ["/local/06-24_single-rust-project/performance_eval/datasets/real_world/tahoe/tahoe_streaming_20M_cells.h5ad"]=3
 )
 
 # Process each dataset
